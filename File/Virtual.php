@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Phplrt\Io\File;
 
+use Phplrt\Contracts\Stream\ReadableStreamInterface;
 use Phplrt\Stream\Factory;
-use Phplrt\Stream\StreamInterface;
 
 /**
  * Class Virtual
@@ -66,9 +66,10 @@ class Virtual extends AbstractFile
 
     /**
      * @param array $options
-     * @return StreamInterface
+     * @return ReadableStreamInterface
+     * @throws \Throwable
      */
-    public function getStream(array $options = []): StreamInterface
+    public function getStream(array $options = []): ReadableStreamInterface
     {
         return Factory::fromContent($this->getContents());
     }

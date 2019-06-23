@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace Phplrt\Io;
 
+use Phplrt\Contracts\Io\Readable;
 use Phplrt\Io\File\Physical;
 use Phplrt\Io\File\Virtual;
 
