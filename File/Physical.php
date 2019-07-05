@@ -9,11 +9,10 @@ declare(strict_types=1);
 
 namespace Phplrt\Io\File;
 
-use Phplrt\Contracts\Stream\SeekableStreamInterface;
-use Phplrt\Contracts\Stream\WritableStreamInterface;
+use Phplrt\Stream\Factory;
+use Phplrt\Stream\StreamInterface;
 use Phplrt\Io\Exception\NotFoundException;
 use Phplrt\Io\Exception\NotReadableException;
-use Phplrt\Stream\Factory;
 
 /**
  * Class Physical
@@ -86,9 +85,10 @@ class Physical extends AbstractFile
 
     /**
      * @param array $options
-     * @return SeekableStreamInterface|WritableStreamInterface
+     * @return StreamInterface
+     * @throws NotReadableException
      */
-    public function getStream(array $options = []): SeekableStreamInterface
+    public function getStream(array $options = []): StreamInterface
     {
         return Factory::fromPathname($this->getPathname(), $options);
     }
